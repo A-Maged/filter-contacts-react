@@ -17,48 +17,48 @@ export default class App extends Component {
 			allContacts: [
 				{
 					name: "abdo",
-					phone: 1234
+					phone: 7125398213
 				},
 				{
 					name: "mahmod",
-					phone: 4567
+					phone: 6395846188
 				},
 				{
 					name: "omar",
-					phone: 8945
+					phone: 8193622770
 				},
 				{
 					name: "yousef",
-					phone: 1478
+					phone: 3549600982
 				},
 				{
 					name: "gamal",
-					phone: 8569
+					phone: 2018014439
 				},
 				{
 					name: "karim",
-					phone: 6512
+					phone: 6425474935
 				},
 
 				{
 					name: "max",
-					phone: 4500
+					phone: 3562529343
 				},
 				{
 					name: "cory",
-					phone: 1295
+					phone: 4734578060
 				},
 				{
 					name: "mike",
-					phone: 7455
+					phone: 3677519298
 				},
 				{
 					name: "jack",
-					phone: 2301
+					phone: 7809033916
 				},
 				{
 					name: "dan",
-					phone: 7496
+					phone: 2709034016
 				}
 			]
 		};
@@ -83,6 +83,12 @@ export default class App extends Component {
 	filterContacts = () => {
 		let searchTerm = this.state.search.term.toLowerCase();
 
+		if (searchTerm.length === 0) {
+			let newSearchObj = {...this.state.search, matchedContacts: []};
+			this.setState({search: newSearchObj});		
+			return;
+		}
+
 		let newMatchedContacts = this.state.allContacts.filter((contact, index) => {
 			// filter by name
 			if (isNaN(searchTerm)) {
@@ -95,15 +101,8 @@ export default class App extends Component {
 			return false;
 		});
 
-		if(newMatchedContacts.length !== 0){
-			let newSearchObj = {...this.state.search, matchedContacts: newMatchedContacts};
-			this.setState({search: newSearchObj});		
-		}
-		else{
-			let newSearchObj = {...this.state.search, matchedContacts: []};
-			this.setState({search: newSearchObj});		
-			console.log('no match');
-		}
+		let newSearchObj = {...this.state.search, matchedContacts: newMatchedContacts};
+		this.setState({search: newSearchObj});		
 	}
 
 	typingHandler = async (event) => {
@@ -125,12 +124,14 @@ export default class App extends Component {
 			this.state.search.matchedContacts:
 			this.state.allContacts;
 
-		return contacts.map((item)=>{
-			return <ContactList 
-				name={item.name}
-				phone={item.phone}
-				key={uniqid()}/>			
-		});
+		return <div className="contact-list-wrapper"> 
+			{contacts.map((item)=>{
+				return <ContactList 
+					name={item.name}
+					phone={item.phone}
+					key={uniqid()}/>			
+			})}
+		</div> 
 	}
 }
 

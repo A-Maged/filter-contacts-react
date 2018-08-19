@@ -16,7 +16,7 @@ let SearchBox = (props) => {
 				onKeyUp={KeyHandler}
 				value={props.term} 
 				className="search-box" 
-				placeholder="search contacts"
+				placeholder="SEARCH CONTACTS"
 				autoFocus
 				type="text"/>
 		</div>

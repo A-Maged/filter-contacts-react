@@ -12,9 +12,8 @@ body{
 
 .search-box{
 	text-align: center;
-	padding: 60px 0;
+	padding: 80px 0;
 	background-color: #444;
-	margin-bottom: 50px;
 }
 .search-box input{
 	background-color: #eee;
@@ -25,14 +24,22 @@ body{
 	outline: none;
 }
 
+.contact-list-wrapper{
+	margin: 30px auto;
+	max-width: 950px;
+	text-align: center;
+}
+
 .contact-list{
-	padding: 25px 30px;
+	padding: 45px 50px;
 	display: inline-block;
 	margin: 15px;
-	border: 1px solid #ccc;
+	/* border: 1px solid #ccc; */
 	box-shadow: 2px 2px #ccc;
 	cursor: pointer;
 	font-weight: normal;
+	background-color: #6aabd5;
+	color: #fff;
 }
 .contact-list:hover{
 	transform: translateY(-8px);
