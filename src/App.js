@@ -70,18 +70,18 @@ export default class App extends Component {
 	}
 	
 	renderContactsList = () => {
-		let foundMatchedContacts = (this.state.search.matchedContacts.length === 0) 
+		let foundMatchedContacts = (this.state.search.matchedContacts.length !== 0) 
 		
 		let contacts = foundMatchedContacts ? 
-				this.state.allContacts:
-				this.state.search.matchedContacts;
+			this.state.search.matchedContacts:
+			this.state.allContacts;
 
 		return contacts.map((item)=>{
 			return <ContactList 
 						name={item.name}
 						phone={item.phone}
 						key={uniqid()}/>			
-		});
+});
 	}
 
 	render() {
