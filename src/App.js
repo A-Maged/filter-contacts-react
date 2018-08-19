@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
+
+/* Components */
 import SearchBox from './components/SearchBox';
 import ContactList from './components/ContactList';
 
@@ -29,25 +32,27 @@ export default class App extends Component {
 	}
 
 	filterContacts = () => {
-		let searchTerm = this.state.search.term;
+		let searchTerm = this.state.search.term.toLowerCase();
 
 		let newMatchedContacts = this.state.allContacts.filter((contact, index) => {
 			// filter by name
 			if (isNaN(searchTerm)) {
-				return contact.name.includes(searchTerm); 
+				return contact.name.toLowerCase().includes(searchTerm); 
 			}
 			// filter by phone
 			else if(!isNaN(searchTerm)){
-				return String(contact.phone).includes(searchTerm); 
+				return String(contact.phone).toLowerCase().includes(searchTerm); 
 			}
 			return false;
 		});
 
 		if(newMatchedContacts.length !== 0){
-			let newSearchObj = {...this.state.search, matchedContacts: newMatchedContacts}
-			this.setState({search: newSearchObj})		
+			let newSearchObj = {...this.state.search, matchedContacts: newMatchedContacts};
+			this.setState({search: newSearchObj});		
 		}
 		else{
+			let newSearchObj = {...this.state.search, matchedContacts: []};
+			this.setState({search: newSearchObj});		
 			console.log('no match');
 		}
 	}
@@ -75,7 +80,7 @@ export default class App extends Component {
 			return <ContactList 
 						name={item.name}
 						phone={item.phone}
-						key={Math.random()}/>			
+						key={uniqid()}/>			
 		});
 	}
 
