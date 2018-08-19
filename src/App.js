@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
 
-/* Components */
+import './App.css';
 import SearchBox from './components/SearchBox';
 import ContactList from './components/ContactList';
 
@@ -12,7 +12,7 @@ export default class App extends Component {
 		this.state = {
 			search: {
 				term: '',
-				matchedContacts: []
+				matchedContacts: [],
 			},
 			allContacts: [
 				{
@@ -27,6 +27,39 @@ export default class App extends Component {
 					name: "omar",
 					phone: 8945
 				},
+				{
+					name: "yousef",
+					phone: 1478
+				},
+				{
+					name: "gamal",
+					phone: 8569
+				},
+				{
+					name: "karim",
+					phone: 6512
+				},
+
+				{
+					name: "max",
+					phone: 4500
+				},
+				{
+					name: "cory",
+					phone: 1295
+				},
+				{
+					name: "mike",
+					phone: 7455
+				},
+				{
+					name: "jack",
+					phone: 2301
+				},
+				{
+					name: "dan",
+					phone: 7496
+				}
 			]
 		};
 	}
@@ -40,6 +73,9 @@ export default class App extends Component {
 					term={this.state.search.term} />
 
 				{this.renderContactsList()}
+
+				{this.state.search.matchedContacts.length === 0 && 
+				<div className="no-match">no match</div>}
 			</div>
 		);
 	}	

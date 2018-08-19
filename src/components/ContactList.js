@@ -5,7 +5,6 @@ let ContactList = (props) => {
 		<div className="contact-list">
 			<h2>{props.name}</h2>
 			<h4>{props.phone}</h4>
-			<hr />
 		</div>
 	);
 }

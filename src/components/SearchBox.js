@@ -17,6 +17,7 @@ let SearchBox = (props) => {
 				value={props.term} 
 				className="search-box" 
 				placeholder="search contacts"
+				autoFocus
 				type="text"/>
 		</div>
 	);
