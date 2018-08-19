@@ -36,7 +36,7 @@ body{
 	margin: 15px;
 	/* border: 1px solid #ccc; */
 	box-shadow: 2px 2px #ccc;
-	cursor: pointer;
+	cursor: default;
 	font-weight: normal;
 	background-color: #6aabd5;
 	color: #fff;
