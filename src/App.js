@@ -31,6 +31,19 @@ export default class App extends Component {
 		};
 	}
 
+	render() {
+		return (
+			<div className="App" >
+				<SearchBox
+					typingHandler={this.typingHandler} 
+					filterContacts={this.filterContacts}
+					term={this.state.search.term} />
+
+				{this.renderContactsList()}
+			</div>
+		);
+	}	
+
 	filterContacts = () => {
 		let searchTerm = this.state.search.term.toLowerCase();
 
@@ -71,30 +84,17 @@ export default class App extends Component {
 	
 	renderContactsList = () => {
 		let foundMatchedContacts = (this.state.search.matchedContacts.length !== 0) 
-		
+			
 		let contacts = foundMatchedContacts ? 
 			this.state.search.matchedContacts:
 			this.state.allContacts;
 
 		return contacts.map((item)=>{
 			return <ContactList 
-						name={item.name}
-						phone={item.phone}
-						key={uniqid()}/>			
-});
+				name={item.name}
+				phone={item.phone}
+				key={uniqid()}/>			
+		});
 	}
-
-	render() {
-		return (
-			<div className="App" >
-				<SearchBox
-					typingHandler={this.typingHandler} 
-					filterContacts={this.filterContacts}
-					term={this.state.search.term} />
-
-				{this.renderContactsList()}
-			</div>
-		);
-	}	
 }
 
