@@ -6,6 +6,7 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-modal": "^3.5.1",
     "react-scripts": "1.1.4",
     "react-transition-group": "^2.4.0",
     "uniqid": "^5.0.3"
@@ -14,8 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-	"eject": "react-scripts eject",
-
-	"build-for-github": "rm -rf docs/ && npm run build && mv build docs"
+    "eject": "react-scripts eject",
+    "build-for-github": "rm -rf docs/ && npm run build && mv build docs"
   }
 }

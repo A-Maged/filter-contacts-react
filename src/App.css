@@ -31,25 +31,25 @@ body{
 	max-width: 950px;
 	text-align: center;
 }
-
 .contact-list{
 	padding: 45px 50px;
 	display: inline-block;
 	margin: 15px;
-	/* border: 1px solid #ccc; */
 	box-shadow: 2px 2px #ccc;
-	cursor: default;
+	cursor: pointer;
 	font-weight: normal;
 	background-color: #6aabd5;
 	color: #fff;
+	text-transform: capitalize;
 }
 .contact-list:hover{
 	transform: translateY(-8px);
 }
 
+
 .no-match{
 	position: fixed;
-	bottom: 15px;
+	top: 30px;
 	right: 30px;	
 	/* background-color: #444; */
 	background-color: red;
@@ -58,4 +58,57 @@ body{
 	font-size: 25px;
 	text-transform: uppercase;
 	font-weight: bold;
+}
+
+
+.modal{
+	position: absolute;
+    /* top: 40px; */
+    top: 25vh;
+    left: 40px;
+    right: 40px;
+    /* bottom: 40px; */
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+	padding: 20px;
+	
+	background: #6aabd5;
+	color: #fff;
+	width: 80%;
+	max-width: 320px;
+	margin: auto;
+	text-align: center;
+}
+.modal > *{
+	margin-bottom: 15px;
+	cursor: default;
+}
+.modal h2, .modal h4{
+	display: inline-block;
+}
+.modal .label{
+	text-transform: uppercase;
+	margin-right: 15px;
+}
+.modal .name{
+	text-transform: uppercase;
+}
+.modal-overlay{
+	background: rgba(0, 0, 0, .5);
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.modal-close-btn{
+	padding: 15px;
+	border: none;
+	background: #eee;
+	color: #444;
+	font-weight: bold;
+	/* margin-top: 15px; */
+	margin-bottom: 0;
+	cursor: pointer;
 }

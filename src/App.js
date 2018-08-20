@@ -3,71 +3,31 @@ import uniqid from 'uniqid';
 // import Transition from 'react-transition-group/Transition';
 
 import './App.css';
+import contactsData from './data/contacts';
 import SearchBox from './components/SearchBox';
 import ContactList from './components/ContactList';
+import Modal from './components/Modal';
+
 
 export default class App extends Component {
 	constructor(){
 		super();
 
 		this.state = {
+			showModal: false,
 			search: {
 				term: '',
 				matchedContacts: [],
 			},
-			allContacts: [
-				{
-					name: "Randy",
-					phone: 7125398213
-				},
-				{
-					name: "Leo",
-					phone: 6395846188
-				},
-				{
-					name: "Brooks",
-					phone: 8193622770
-				},
-				{
-					name: "Selene",
-					phone: 3549600982
-				},
-				{
-					name: "Damian",
-					phone: 2018014439
-				},
-				{
-					name: "Ronda",
-					phone: 6425474935
-				},
-
-				{
-					name: "max",
-					phone: 3562529343
-				},
-				{
-					name: "cory",
-					phone: 4734578060
-				},
-				{
-					name: "mike",
-					phone: 3677519298
-				},
-				{
-					name: "jack",
-					phone: 7809033916
-				},
-				{
-					name: "dan",
-					phone: 2709034016
-				}
-			]
+			selectedContactIndex: null,
+			allContacts: contactsData
 		};
 	}
 
 	render() {
 		return (
 			<div className="App" >
+				
 				<SearchBox
 					typingHandler={this.typingHandler} 
 					filterContacts={this.filterContacts}
@@ -78,9 +38,35 @@ export default class App extends Component {
 				{this.state.search.matchedContacts.length === 0 && 
 				this.state.search.term.length > 0 &&
 				<div className="no-match">no match</div>}
+
+				
+				{this.state.showModal &&
+				// " + 1" is because zero-index is falsy and won't fire modal for first element in array
+				this.state.selectedContactIndex + 1  &&
+				<Modal 
+					isOpen={this.state.showModal}				
+					handleCloseModal={this.handleCloseModal} 
+					selectedContact={this.getSelectedContact}
+				/>}
 			</div>
 		);
-	}	
+	}
+	
+	getSelectedContact = () => {
+		if (this.state.search.matchedContacts.length === 0) {
+			return this.state.allContacts[this.state.selectedContactIndex]
+		}
+		return this.state.search.matchedContacts[this.state.selectedContactIndex]
+	}
+
+	handleOpenModal = (selectedContactIndex) => {
+		this.setState({ selectedContactIndex: selectedContactIndex });
+		this.setState({ showModal: true });
+	}
+
+	handleCloseModal = () => {
+		this.setState({ showModal: false });
+	}
 
 	filterContacts = () => {
 		let searchTerm = this.state.search.term.toLowerCase();
@@ -127,11 +113,14 @@ export default class App extends Component {
 			this.state.allContacts;
 
 		return <div className="contact-list-wrapper"> 
-			{contacts.map((item)=>{
+			{contacts.map((item, index)=>{
 				return <ContactList 
+					index={index}
 					name={item.name}
 					phone={item.phone}
-					key={uniqid()}/>			
+					key={uniqid()}
+					handleOpenModal={this.handleOpenModal}
+					/>			
 			})}
 		</div> 
 	}
