@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-
 ReactModal.setAppElement('#root');
 
-let Modal = (props) => {
+let ContactsModal = (props) => {
 	var selectedContact = props.selectedContact();
 
 	return(
@@ -38,7 +37,7 @@ let Modal = (props) => {
 	)
 }
 
-export default Modal;
+export default ContactsModal;
 
 
 

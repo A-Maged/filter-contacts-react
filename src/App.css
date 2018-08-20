@@ -9,11 +9,17 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 
-
-.search-box{
+.header{
 	text-align: center;
 	padding: 80px 0;
 	background-color: #444;
+}
+
+.search-box{
+	display: inline-block;
+	max-width: 350px;
+	width: 80%;
+	margin-right: 15px;
 }
 .search-box input{
 	background-color: #eee;
@@ -22,8 +28,22 @@ body{
 	padding: 10px 20px;
 	margin: 0;
 	outline: none;
-	max-width: 420px;
-	width: 80%;
+	width: 100%;
+}
+
+.add-btn{
+	vertical-align: middle;
+	display: inline-block;
+	padding: 10px;
+	border-radius: 100%;
+	border: none;
+	height: 55px;
+	width: 55px;
+	font-size: 30px;
+	color: #fff;
+	background-color: red;
+	cursor: pointer;
+	outline: none;
 }
 
 .contact-list-wrapper{

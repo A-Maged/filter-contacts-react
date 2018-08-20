@@ -1,4 +1,4 @@
 add :
-	styling
+	plus button
 	redux
 	testing

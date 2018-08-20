@@ -6,7 +6,7 @@ import './App.css';
 import contactsData from './data/contacts';
 import SearchBox from './components/SearchBox';
 import ContactList from './components/ContactList';
-import Modal from './components/Modal';
+import ContactsModal from './components/ContactsModal';
 
 
 export default class App extends Component {
@@ -28,10 +28,15 @@ export default class App extends Component {
 		return (
 			<div className="App" >
 				
-				<SearchBox
-					typingHandler={this.typingHandler} 
-					filterContacts={this.filterContacts}
-					term={this.state.search.term} />
+				<div className="header">
+
+					<SearchBox
+						typingHandler={this.typingHandler} 
+						filterContacts={this.filterContacts}
+						term={this.state.search.term} />
+
+					{/* <button className="add-btn">+</button> */}
+				</div>
 
 				{this.renderContactsList()}
 
@@ -43,7 +48,7 @@ export default class App extends Component {
 				{this.state.showModal &&
 				// " + 1" is because zero-index is falsy and won't fire modal for first element in array
 				this.state.selectedContactIndex + 1  &&
-				<Modal 
+				<ContactsModal 
 					isOpen={this.state.showModal}				
 					handleCloseModal={this.handleCloseModal} 
 					selectedContact={this.getSelectedContact}
