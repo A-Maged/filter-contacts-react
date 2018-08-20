@@ -41,14 +41,15 @@ export default class App extends Component {
 				{this.renderContactsList()}
 
 				{this.state.search.matchedContacts.length === 0 && 
-				this.state.search.term.length > 0 &&
-				<div className="no-match">no match</div>}
+				 this.state.search.term.length > 0 &&
+				 <div className="no-match">no match</div>}
 
 				
 				{this.state.showModal &&
-				// " + 1" is because zero-index is falsy and won't fire modal for first element in array
-				this.state.selectedContactIndex + 1  &&
-				<ContactsModal 
+				 /* using "!== null" because zero-index is falsy and won't 
+				    fire modal for first element in array */
+				 this.state.selectedContactIndex !== null  &&
+				 <ContactsModal 
 					isOpen={this.state.showModal}				
 					handleCloseModal={this.handleCloseModal} 
 					selectedContact={this.getSelectedContact}
