@@ -1,4 +1,5 @@
 add :
+	animation on Enter and Exit
 	plus button
 	redux
 	testing
