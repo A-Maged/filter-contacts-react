@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uniqid from 'uniqid';
+// import Transition from 'react-transition-group/Transition';
 
 import './App.css';
 import SearchBox from './components/SearchBox';
@@ -75,6 +76,7 @@ export default class App extends Component {
 				{this.renderContactsList()}
 
 				{this.state.search.matchedContacts.length === 0 && 
+				this.state.search.term.length > 0 &&
 				<div className="no-match">no match</div>}
 			</div>
 		);

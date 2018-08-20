@@ -22,6 +22,8 @@ body{
 	padding: 10px 20px;
 	margin: 0;
 	outline: none;
+	max-width: 420px;
+	width: 80%;
 }
 
 .contact-list-wrapper{
@@ -49,7 +51,8 @@ body{
 	position: fixed;
 	bottom: 15px;
 	right: 30px;	
-	background-color: #444;
+	/* background-color: #444; */
+	background-color: red;
 	color: #fff;
 	padding: 15px 20px;
 	font-size: 25px;
