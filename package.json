@@ -2,6 +2,7 @@
   "name": "react-test",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://a-maged.github.io/filter-contacts-react/docs",
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
