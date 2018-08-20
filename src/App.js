@@ -17,27 +17,27 @@ export default class App extends Component {
 			},
 			allContacts: [
 				{
-					name: "abdo",
+					name: "Randy",
 					phone: 7125398213
 				},
 				{
-					name: "mahmod",
+					name: "Leo",
 					phone: 6395846188
 				},
 				{
-					name: "omar",
+					name: "Brooks",
 					phone: 8193622770
 				},
 				{
-					name: "yousef",
+					name: "Selene",
 					phone: 3549600982
 				},
 				{
-					name: "gamal",
+					name: "Damian",
 					phone: 2018014439
 				},
 				{
-					name: "karim",
+					name: "Ronda",
 					phone: 6425474935
 				},
 

@@ -16,6 +16,6 @@
     "test": "react-scripts test --env=jsdom",
 	"eject": "react-scripts eject",
 
-	"build-deploy": "rm -rf docs/ && npm run build && mv build docs"
+	"build-for-github": "rm -rf docs/ && npm run build && mv build docs"
   }
 }
