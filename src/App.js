@@ -5,7 +5,7 @@ import uniqid from 'uniqid';
 import './App.css';
 import contactsData from './data/contacts';
 import SearchBox from './components/SearchBox';
-import ContactList from './components/ContactList';
+import ContactCard from './components/ContactCard';
 import ContactsModal from './components/ContactsModal';
 
 
@@ -120,9 +120,9 @@ export default class App extends Component {
 			this.state.search.matchedContacts:
 			this.state.allContacts;
 
-		return <div className="contact-list-wrapper"> 
+		return <div className="contact-list"> 
 			{contacts.map((item, index)=>{
-				return <ContactList 
+				return <ContactCard 
 					index={index}
 					name={item.name}
 					phone={item.phone}

@@ -1,16 +1,16 @@
 import React from 'react';
 
-let ContactList = (props) => {
+let ContactCard = (props) => {
 	var { handleOpenModal, name, phone, index } = props;
 
 	return(
 		<div 
 			onClick={handleOpenModal.bind(null, index)} 
-			className="contact-list">
+			className="contact-card">
 			<h2>{name}</h2>
 			<h4>{phone}</h4>
 		</div>
 	);
 }
 
-export default ContactList;
+export default ContactCard;

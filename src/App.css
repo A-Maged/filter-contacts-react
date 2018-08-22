@@ -46,12 +46,12 @@ body{
 	outline: none;
 }
 
-.contact-list-wrapper{
+.contact-list{
 	margin: 30px auto;
 	max-width: 950px;
 	text-align: center;
 }
-.contact-list{
+.contact-card{
 	padding: 45px 50px;
 	display: inline-block;
 	margin: 15px;
@@ -62,7 +62,7 @@ body{
 	color: #fff;
 	text-transform: capitalize;
 }
-.contact-list:hover{
+.contact-card:hover{
 	transform: translateY(-8px);
 }
 
