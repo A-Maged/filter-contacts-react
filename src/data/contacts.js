@@ -13,9 +13,9 @@ let contactsData = [
 	},
 	{
 		id: 3, 
-		name: "brooks",
+		name: "brooke",
 		phone: 8193622770,
-		website: "brooks.com"
+		website: "brooke.com"
 	},
 	{
 		id: 4, 

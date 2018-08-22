@@ -2,7 +2,7 @@ import React from 'react';
 
 let SearchBox = (props) => {
 
-	var { filterContacts, typingHandler, term } = props;
+	let { filterContacts, typingHandler, term } = props;
 
 	function KeyHandler(event){
 		if (event.keyCode === 13 || // enter key

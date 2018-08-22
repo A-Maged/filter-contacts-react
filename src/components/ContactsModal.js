@@ -4,8 +4,8 @@ import ReactModal from 'react-modal';
 ReactModal.setAppElement('#root');
 
 let ContactsModal = (props) => {
-	var selectedContact = props.getSelectedContact();
-	var { isOpen, handleCloseModal} = props;
+	let { isOpen, handleCloseModal} = props;
+	let selectedContact = props.getSelectedContact();
 
 	return(
 		<ReactModal 

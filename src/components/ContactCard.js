@@ -1,7 +1,7 @@
 import React from 'react';
 
 let ContactCard = (props) => {
-	var { handleOpenModal, name, phone, index } = props;
+	let { handleOpenModal, name, phone, index } = props;
 
 	return(
 		<div 
