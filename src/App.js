@@ -52,7 +52,7 @@ export default class App extends Component {
 				 <ContactsModal 
 					isOpen={this.state.showModal}				
 					handleCloseModal={this.handleCloseModal} 
-					selectedContact={this.getSelectedContact}
+					getSelectedContact={this.getSelectedContact}
 				/>}
 			</div>
 		);

@@ -1,12 +1,14 @@
 import React from 'react';
 
 let ContactList = (props) => {
+	var { handleOpenModal, name, phone, index } = props;
+
 	return(
 		<div 
-			onClick={props.handleOpenModal.bind(null, props.index)} 
+			onClick={handleOpenModal.bind(null, index)} 
 			className="contact-list">
-			<h2>{props.name}</h2>
-			<h4>{props.phone}</h4>
+			<h2>{name}</h2>
+			<h4>{phone}</h4>
 		</div>
 	);
 }
