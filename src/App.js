@@ -46,8 +46,8 @@ export default class App extends Component {
 
 				
 				{this.state.showModal &&
-				 /* using "!== null" because zero-index is falsy and won't 
-				    fire modal for first element in array */
+				 /* using "!== null" instead of "+ 1" because zero-index is falsy 
+						and won't fire modal for first element in array */
 				 this.state.selectedContactIndex !== null  &&
 				 <ContactsModal 
 					isOpen={this.state.showModal}				
