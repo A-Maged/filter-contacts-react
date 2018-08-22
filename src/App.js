@@ -105,7 +105,9 @@ export default class App extends Component {
 			term: event.target.value
 		}
 		
-		// must wait for this to finish before calling filterContacts
+		// setState is async so we must wait for it to finish before 
+		// calling filterContacts to ensure we're getting the latest typed 
+		// search-term from state
 		await this.setState({search: newSearchObj});
 
 		this.filterContacts()
