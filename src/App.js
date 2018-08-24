@@ -9,19 +9,15 @@ import ContactCard from './components/ContactCard';
 import ContactsModal from './components/ContactsModal';
 
 export default class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      showModal: false,
-      search: {
-        term: '',
-        matchedContacts: []
-      },
-      selectedContactIndex: null,
-      allContacts: contactsData
-    };
-  }
+  state = {
+    showModal: false,
+    search: {
+      term: '',
+      matchedContacts: []
+    },
+    selectedContactIndex: null,
+    allContacts: contactsData
+  };
 
   render() {
     return (
