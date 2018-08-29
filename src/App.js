@@ -34,11 +34,6 @@ export default class App extends Component {
 
         {this.renderContactsList()}
 
-        {this.state.search.matchedContacts.length === 0 &&
-          this.state.search.term.length > 0 && (
-            <div className="no-match">no match</div>
-          )}
-
         {this.state.showModal &&
           /* using "!== null" instead of "+ 1" because zero-index is falsy 
 						and won't fire modal for first element in array */
@@ -48,6 +43,11 @@ export default class App extends Component {
               handleCloseModal={this.handleCloseModal}
               getSelectedContact={this.getSelectedContact}
             />
+          )}
+
+        {this.state.search.matchedContacts.length === 0 &&
+          this.state.search.term.length > 0 && (
+            <div className="no-match">no match</div>
           )}
       </div>
     );
@@ -99,18 +99,18 @@ export default class App extends Component {
     this.setState({ search: newSearchObj });
   };
 
-  typingHandler = async event => {
+  typingHandler = event => {
     let newSearchObj = {
       ...this.state.search,
       term: event.target.value
     };
 
-    // setState is async so we must wait for it to finish before
-    // calling "filterContacts" to ensure we're getting the latest typed
-    // search-term from state
-    await this.setState({ search: newSearchObj });
-
-    this.filterContacts();
+    this.setState(
+      currnetState => ({ search: newSearchObj }),
+      () => {
+        this.filterContacts();
+      }
+    );
   };
 
   renderContactsList = () => {

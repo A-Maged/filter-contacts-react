@@ -1,19 +1,13 @@
 import React from 'react';
-import ReactModal from 'react-modal';
-
-ReactModal.setAppElement('#root');
+import ModalWrapper from './ModalWrapper';
 
 let ContactsModal = props => {
-  let { isOpen, handleCloseModal } = props;
   let selectedContact = props.getSelectedContact();
 
   return (
-    <ReactModal
-      isOpen={isOpen}
-      onRequestClose={handleCloseModal}
-      shouldCloseOnOverlayClick={true}
-      className="modal"
-      overlayClassName="modal-overlay"
+    <ModalWrapper
+      isOpen={props.isOpen}
+      handleCloseModal={props.handleCloseModal}
     >
       <div className="name">
         <span className="label">name:</span>
@@ -30,10 +24,10 @@ let ContactsModal = props => {
         <h4>{selectedContact.website}</h4>
       </div>
 
-      <button onClick={handleCloseModal} className="modal-close-btn">
+      <button onClick={props.handleCloseModal} className="modal-close-btn">
         Close Modal
       </button>
-    </ReactModal>
+    </ModalWrapper>
   );
 };
 
